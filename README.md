@@ -2,7 +2,7 @@
 This repo contains Whitesmiths Ltd (now defunct) Idris OS version 3.12 for the Atari ST.
 The porting work was done by **David M. Stanhope** at Computer Tools (also defunct), in 1986.
 He also ported MIT's X Windows 10R4 to the ST. The work included ST specific device drivers
-as well as pseudo drivers to support network (e.g. sockets, select).
+as well as pseudo drivers to support networking (e.g. sockets, select).
 
 ## Distribution Manifest
 The distro includes the following:
@@ -11,16 +11,36 @@ The distro includes the following:
 3. Compiler disks (`compiler?of2.st`)
 4. The kernel build disk (`kernbuild.st`)
 5. X10R4 disks (`st_xwin10r4_?of4.st`)
-6. Tar file floppies containing miscellaneous open source apps ported to Idris (`misc_*.st`)
+6. Tar file of compressed tars of open source or PD sofware ported to Idris (`misc_*.st`)
+
+Idris uses the UNIX v6 file system format. To examine contents of the images, on Linux, use the
+[retro-fuse](https://github.com/jaylogue/retro-fuse) `v6fs` utility to mount the
+v6 fs on a diskette:
+Example:
+```sh
+v6fs -o ro -o fsoffset=1 dist2of2.st ~/mnt/dist2
+```
+
+The filesystem on the boot disk starts at block 18 (`fsoffset=18`),
+```sh
+v6fs -o ro -o fsoffset=18 boot.st ~/mnt/boot
+```
+
+The `misc` floppies are tar of compressed tar files:
+```sh
+dd if=misc_toys.tar.st skip=1 | tar -tv
+```
 
 ## Running on Hatari
 Idris runs on the 520 ST and the 1040 ST, as well as the MegaST. To run X10R4 use the
 MegaST emulation with 4MB of memory.
 
-To run the system on Hatari, set `Drive A:` from Floppy menu to the boot disk image and
-rest the machine. At the "device number: " prompt, press `0` followed by enter. Then
-enter `idrisk1a` at the `cboot` prompt and press enter. The system default is to
-boot from the hard drive (device number 1), if the user input times out.
+To run the system on Hatari, set `Drive A:` from _Floppy disks_ menu to the boot disk image,
+then select "Reset Machine" on the main menu and press OK. After the restart, at the
+`device number: ` prompt, press `0` followed by enter. Then
+enter `idrisk1a` at the `[cboot]: ` prompt and then press enter. If nothing is entered at
+these prompts, the input will timeout and default to booting _idrisk1a_ from the hard
+drive (device number 1).
 
 Once Idris is loaded, the shell is started and the `#` prompt will appear. Some Idris
 commands are included on the boot floppy to allow bootstrapping the system onto a hard
