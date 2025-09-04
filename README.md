@@ -1,7 +1,9 @@
 # Idris OS for the Atari ST
-This repo contains Whitesmiths Ltd (now defunct) Idris OS version 3.12 for the Atari ST.
+This repo contains the 3.5" floppy disk images of the Whitesmiths Ltd (now defunct) Idris OS
+version 3.12 for the Atari ST.
+
 The porting work was done by **David M. Stanhope** at Computer Tools (also defunct), in 1986.
-He also ported MIT's X Windows 10R4 to the ST. The work included ST specific device drivers
+He also ported MIT's X Windows (X10 R4) to the ST. The work included ST specific device drivers
 as well as pseudo drivers to support networking (e.g. sockets, select).
 
 ## Distribution Manifest
@@ -12,6 +14,8 @@ The distro includes the following:
 4. The kernel build disk (`kernbuild.st`)
 5. X10R4 disks (`st_xwin10r4_?of4.st`)
 6. Tar file of compressed tars of open source or PD sofware ported to Idris (`misc_*.st`)
+
+The `docs` directory contains the scanned PDFs of the Idris manuals, STX Windows and CTI Net guides.
 
 Idris uses the UNIX v6 file system format. To examine contents of the images, on Linux, use the
 [retro-fuse](https://github.com/jaylogue/retro-fuse) `v6fs` utility to mount the
@@ -47,6 +51,8 @@ commands are included on the boot floppy to allow bootstrapping the system onto 
 drive.
 
 ## Hard Disk Installation
+Follow the instructions in the "Idris Installation Guide for the Atari ST" in `docs`.
+
 Hatari ACSI hard disk emulation doesn't seem to agree with Idris's ACSI driver. Idris is known
 to work with real Atari ACSI disks such as the SH205.  Normally the `BuildHard` script would be
 used to create a filesystem on the 3rd partition of the hard drive (`/dev/hdroot`). The
