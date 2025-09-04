@@ -52,6 +52,8 @@ drive.
 
 ## Hard Disk Installation
 Follow the instructions in the "Idris Installation Guide for the Atari ST" in `docs`.
+The last section of the guide includes instructions on how to install STX Windows
+after Idris has been installed.
 
 Hatari ACSI hard disk emulation doesn't seem to agree with Idris's ACSI driver. Idris is known
 to work with real Atari ACSI disks such as the SH205.  Normally the `BuildHard` script would be
