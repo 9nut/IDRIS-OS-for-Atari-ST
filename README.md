@@ -6,6 +6,8 @@ The porting work was done by **David M. Stanhope** at Computer Tools (also defun
 He also ported MIT's X Windows (X10 R4) to the ST. The work included ST specific device drivers
 as well as pseudo drivers to support networking (e.g. sockets, select).
 
+![Idris STX Running in Hatari 2.6.1](screenshots/Idris_X10_in_Hatari_emulator.png)
+
 ## Distribution Manifest
 The distro includes the following:
 1. Boot disk (`boot.st`)
@@ -55,7 +57,8 @@ Follow the instructions in the "Idris Installation Guide for the Atari ST" in `d
 The last section of the guide includes instructions on how to install STX Windows
 after Idris has been installed.
 
-Hatari ACSI hard disk emulation doesn't seem to agree with Idris's ACSI driver. Idris is known
+Hatari ACSI hard disk emulation doesn't seem to agree with Idris's ACSI driver.
+A workaround patch has been created by https://github.com/czietz for Hatari 2.6.1. Idris is known
 to work with real Atari ACSI disks such as the SH205.  Normally the `BuildHard` script would be
 used to create a filesystem on the 3rd partition of the hard drive (`/dev/hdroot`). The
 1st partition corresponds to `/dev/hdboot`, and the 2nd partition to `/dev/hdswap`. `BuildHard`
