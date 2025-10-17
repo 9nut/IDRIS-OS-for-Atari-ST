@@ -58,11 +58,15 @@ The last section of the guide includes instructions on how to install STX Window
 after Idris has been installed.
 
 Hatari ACSI hard disk emulation doesn't seem to agree with Idris's ACSI driver.
-A workaround patch has been created by https://github.com/czietz for Hatari 2.6.1. Idris is known
-to work with real Atari ACSI disks such as the SH205.  Normally the `BuildHard` script would be
-used to create a filesystem on the 3rd partition of the hard drive (`/dev/hdroot`). The
-1st partition corresponds to `/dev/hdboot`, and the 2nd partition to `/dev/hdswap`. `BuildHard`
-requires the number of sectors in `/dev/hdroot` partition for the `mkfs` command.
+A workaround patch has been created by [Christian Zietz](https://github.com/czietz)
+for Hatari 2.6.1.
+
+Idris is known to work with real Atari ACSI disks such as the SH205.
+The `show0` command is used to view and designate an Idris partition (type `IDR`).
+The `BuildHard` script is then used to create a filesystem on the `IDR` partition.
+The installation documentation describes the number of blocks that should be reserved for
+boot and swap, depending on the system memory, and the number of sectors that should be
+given to `BuildHard` to pass to `mkfs` command.
 
 Using only the boot floppy, the other floppy images can be inspected by mounting them
 on Drive B. Set Drive B to point to an image (e.g. `dist1of2.st`), then mount the second
